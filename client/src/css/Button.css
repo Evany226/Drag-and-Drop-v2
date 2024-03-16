@@ -1,0 +1,136 @@
+.signup-button {
+  cursor: pointer;
+  background-color: #5b45ff;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 0.25rem;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.35rem 1.25rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 2rem;
+}
+
+.try-button {
+  cursor: pointer;
+  background-color: #5b45ff;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 0.25rem;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.35rem 1.25rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+}
+
+.login-button {
+  cursor: pointer;
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.35rem 1rem;
+  text-decoration: none;
+  border: none;
+  background-color: #fafbfc;
+  border-radius: 0.8rem;
+  margin-right: 0.25rem;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.create-button {
+  background-color: #dfe1e6;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 0.85rem;
+  border-radius: 0.5rem;
+  color: #000;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  margin-right: 1rem;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+}
+
+.create-button:hover {
+  background-color: #65b0ff;
+  transition: 0.15s;
+}
+
+.logout-button {
+  background-color: #f1f2f4;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+  padding: 0.3rem 0.75rem;
+  margin-right: 0rem;
+  font-family: Roboto, sans-serif;
+  font-weight: 500;
+}
+
+.logout-button:hover {
+  background-color: #65b0ff;
+  transition: 0.15s;
+}
+
+.note-button {
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+.note-button:hover {
+  background-color: #d4d4d8;
+}
+
+.note-button-text {
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+  color: #172b4d;
+  font-weight: 500;
+}
+
+.menu-button {
+  border-radius: 0.5rem;
+  display: flex;
+  padding: 0.75rem 0.5rem;
+  align-items: flex-end;
+  cursor: pointer;
+  background-color: #65b0ff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  z-index: 10;
+}
+
+.menu-button:hover {
+  background-color: #4790e0;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.menu-button-text {
+  font-size: 0.875rem;
+  margin-left: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  text-align: center;
+}

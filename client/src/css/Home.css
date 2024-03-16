@@ -1,0 +1,173 @@
+#root {
+  font-family: Inter, sans-serif;
+}
+
+html,body, * {
+  margin: 0;
+  padding 0;
+  box-sizing: border-box;
+
+}
+
+#background {
+  background-color: #fafbfc;
+}
+
+
+.homeNav {
+  background-color: #fafbfc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.5rem;
+  width: 100%;
+}
+
+.title {
+  color: #040303;
+  font-weight: 700;
+}
+
+
+.title-2 {
+  color:#5b45ff;
+  font-weight: 700;
+}
+
+#titleWrapper {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+#buttonWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+
+#foreground {
+  background-color: #fff;
+  height: calc(100% - 4.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subTextWrapper {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mainTextWrapper {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  
+}
+
+.slogan-wrapper {
+  background-color: white;
+  padding: 3rem 2rem;
+  width: 70%;
+  margin-right: 3rem;
+
+}
+
+.main-title {
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 2.986rem;
+  color: #222222;
+  
+}
+
+.sub-title {
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color:RGB(34, 34, 34);
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.svgcomp {
+  width: 85%;
+}
+
+
+@media only screen and (max-width: 699px) {
+  #foreground {
+    flex-direction: column;
+  }
+
+  .mainTextWrapper {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .subTextWrapper {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slogan-wrapper {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0rem;
+  }
+
+  .main-title {
+    text-align: center;
+  }
+
+  .sub-title {
+    text-align: center;
+  }
+
+  .subTextWrapper {
+    width: 100%;
+  }
+
+  .svgcomp {
+    width: 90%;
+    height: 95%;
+  }
+  
+}
+
+
+
+
+@media only screen and (max-width: 700px) {
+
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 993px) {
+  html,body {
+    font-size: 100%;
+  }
+}
+
+
+@media only screen and (min-width: 1400px) {
+  html, body {
+    font-size: 110%;
+  }
+
+}    
