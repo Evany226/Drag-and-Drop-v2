@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "flydb": "fly postgres connect -a dragndrop-db"
+    "db": "fly postgres connect -a dragndrop-db",
+    "proxy": "fly proxy 5433 -a dragndrop-db"
   },
   "author": "",
   "license": "ISC",
