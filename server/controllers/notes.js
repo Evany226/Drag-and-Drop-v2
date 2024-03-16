@@ -12,6 +12,7 @@ router.post("/", async (req, res) => {
     const note = await Note.create(req.body);
     res.json(note);
   } catch (error) {
+    console.log(error);
     return res.status(400).json({ error });
   }
 });
