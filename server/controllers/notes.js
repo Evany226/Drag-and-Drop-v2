@@ -30,6 +30,7 @@ router.delete("/:id", async (req, res) => {
   const note = await Note.findByPk(req.params.id);
   if (note) {
     await note.destroy();
+    res.json("Note deleted successfuly");
   }
   res.status(204).end();
 });
