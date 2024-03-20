@@ -170,4 +170,14 @@ html,body, * {
     font-size: 110%;
   }
 
+  .svgcomp {
+    width: 95%;
+    height: 100%;
+  }
+
+  #foreground {
+    padding-top: 3rem;
+  }
+  
+
 }    

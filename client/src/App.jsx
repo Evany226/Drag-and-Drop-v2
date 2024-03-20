@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import PageLoader from "./components/PageLoader.jsx";
 import Home from "./pages/HomePage.jsx";
 import Dashboard from "./Dashboard.jsx";
+import BoardSelectPage from "./pages/BoardSelectPage.jsx";
 import CallBackPage from "./pages/CallBackPage.jsx";
 import AuthenticationGuard from "./components/AuthGuard.jsx";
 
@@ -23,8 +24,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/dashboard"
+          path="/board"
           element={<AuthenticationGuard component={Dashboard} />}
+        />
+        <Route
+          path="/dashboard"
+          element={<AuthenticationGuard component={BoardSelectPage} />}
         />
         <Route path="/callback" element={<CallBackPage />} />
       </Routes>
