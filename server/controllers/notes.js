@@ -1,17 +1,29 @@
 const router = require("express").Router();
 
-const { Note } = require("../models");
+const { Note, User } = require("../models");
 
 const { validateAccessToken } = require("../middleware/auth0.middleware.js");
 
 router.get("/", async (req, res) => {
-  const notes = await Note.findAll();
-  res.json(notes);
+  try {
+    const paramId = req.query.boardId;
+    const notes = await Note.findAll({
+      where: {
+        boardId: paramId,
+      },
+    });
+    res.json(notes);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ error });
+  }
 });
 
-router.post("/", validateAccessToken, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const note = await Note.create(req.body);
+    // const authId = req.auth.payload.sub;
+    const paramId = req.query.boardId;
+    const note = await Note.create({ ...req.body, boardId: paramId });
     res.json(note);
   } catch (error) {
     console.log(error);
@@ -28,7 +40,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", validateAccessToken, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   const note = await Note.findByPk(req.params.id);
   if (note) {
     await note.destroy();
@@ -37,12 +49,13 @@ router.delete("/:id", validateAccessToken, async (req, res) => {
   res.status(204).end();
 });
 
-router.put("/:id", validateAccessToken, async (req, res) => {
+router.put("/:id", async (req, res) => {
   const note = await Note.findByPk(req.params.id);
   if (note) {
     note.name = req.body.name;
-    note.content = note.body.content;
+    note.content = req.body.content;
     await note.save();
+    console.log(JSON.stringify(note));
     res.json(note);
   } else {
     res.status(404).end();

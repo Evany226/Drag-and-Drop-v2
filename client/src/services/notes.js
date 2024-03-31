@@ -1,22 +1,28 @@
 import axios from "axios";
 const baseUrl = "http://localhost:3001/api/notes";
 
-const getAll = async (accessToken) => {
+const getAll = async (paramId, accessToken) => {
   const request = axios.get(baseUrl, {
     headers: {
       "content-type": "application/json",
       Authorization: `Bearer ${accessToken}`,
+    },
+    params: {
+      boardId: paramId,
     },
   });
 
   return request.then((response) => response.data);
 };
 
-const create = (newObject, accessToken) => {
+const create = (newObject, paramId, accessToken) => {
   const request = axios.post(baseUrl, newObject, {
     headers: {
       "content-type": "application/json",
       Authorization: `Bearer ${accessToken}`,
+    },
+    params: {
+      boardId: paramId,
     },
   });
   return request.then((response) => response.data);

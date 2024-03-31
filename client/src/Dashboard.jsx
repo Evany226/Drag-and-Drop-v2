@@ -40,12 +40,12 @@ const Dashboard = () => {
     const getData = async () => {
       const accessToken = await getAccessTokenSilently();
 
-      noteService.getAll(accessToken).then((initialNotes) => {
+      noteService.getAll(paramId, accessToken).then((initialNotes) => {
         setNotes(initialNotes);
       });
     };
     getData();
-  }, [getAccessTokenSilently]);
+  }, [getAccessTokenSilently, paramId]);
 
   const handleOpen = () => {
     setOpen(!open);
@@ -68,10 +68,12 @@ const Dashboard = () => {
         content: [],
       };
 
-      noteService.create(noteObject, accessToken).then((returnedNote) => {
-        setNotes(notes.concat(returnedNote));
-        setNewNote("");
-      });
+      noteService
+        .create(noteObject, paramId, accessToken)
+        .then((returnedNote) => {
+          setNotes(notes.concat(returnedNote));
+          setNewNote("");
+        });
     };
     if (newNote === "") {
       window.alert("List name must not be empty");

@@ -13,7 +13,8 @@ module.exports = {
         allowNull: false,
       },
       content: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ARRAY(Sequelize.TEXT),
+        default: [],
       },
     });
     await queryInterface.createTable("users", {
