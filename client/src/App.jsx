@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
-          path="/board"
+          path="/boards/:id"
           element={<AuthenticationGuard component={Dashboard} />}
         />
         <Route

@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 const { PORT } = require("./util/config");
 const { connectToDatabase } = require("./util/db");
@@ -8,6 +9,7 @@ const notesRouter = require("./controllers/notes");
 const boardsRouter = require("./controllers/boards");
 const usersRouter = require("./controllers/users");
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/notes", notesRouter);

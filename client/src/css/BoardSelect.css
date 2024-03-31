@@ -48,15 +48,16 @@
 .board-grid {
   display: flex;
   flex-direction: column;
-  max-width: 80rem;
   padding: 3rem 0rem 0rem 3rem;
+  width: 100%;
 }
 
 .grid-header {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-style: normal;
+  margin-left: 1rem;
 }
 
 .board-listings {
@@ -66,9 +67,16 @@
 
 .board-item {
   width: 15rem;
-  height: 10rem;
-  background-color: red;
+  height: 8rem;
+  background-color: #f7f7f8;
   margin: 2rem;
   margin-left: 0rem;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-item-text {
+  font-size: 1rem;
 }

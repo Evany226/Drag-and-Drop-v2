@@ -14,6 +14,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { DragDropContext } from "@hello-pangea/dnd";
 import { Droppable } from "@hello-pangea/dnd";
 import { v4 as uuidv4 } from "uuid";
+import { useParams } from "react-router-dom";
 
 const Dashboard = () => {
   const [notes, setNotes] = useState([]);
@@ -27,6 +28,7 @@ const Dashboard = () => {
   // });
 
   const { user } = useAuth0();
+  const paramId = useParams().id;
   const { getAccessTokenSilently } = useAuth0();
 
   if (!notes) {

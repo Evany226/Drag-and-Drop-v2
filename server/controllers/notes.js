@@ -2,12 +2,14 @@ const router = require("express").Router();
 
 const { Note } = require("../models");
 
+const { validateAccessToken } = require("../middleware/auth0.middleware.js");
+
 router.get("/", async (req, res) => {
   const notes = await Note.findAll();
   res.json(notes);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", validateAccessToken, async (req, res) => {
   try {
     const note = await Note.create(req.body);
     res.json(note);
@@ -26,7 +28,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", validateAccessToken, async (req, res) => {
   const note = await Note.findByPk(req.params.id);
   if (note) {
     await note.destroy();
@@ -35,10 +37,11 @@ router.delete("/:id", async (req, res) => {
   res.status(204).end();
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", validateAccessToken, async (req, res) => {
   const note = await Note.findByPk(req.params.id);
   if (note) {
-    note.important = req.body.important;
+    note.name = req.body.name;
+    note.content = note.body.content;
     await note.save();
     res.json(note);
   } else {

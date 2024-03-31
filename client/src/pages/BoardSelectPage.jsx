@@ -1,6 +1,27 @@
 import "../css/BoardSelect.css";
+import { useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import boardService from "../services/boards";
+import { Link } from "react-router-dom";
 
 const BoardSelectPage = () => {
+  const [boards, setBoards] = useState([]);
+
+  // const { user } = useAuth0();
+  const { getAccessTokenSilently } = useAuth0();
+
+  useEffect(() => {
+    const getData = async () => {
+      const accessToken = await getAccessTokenSilently();
+
+      boardService.getAll(accessToken).then((initialBoards) => {
+        console.log(initialBoards);
+        setBoards(initialBoards);
+      });
+    };
+    getData();
+  }, [getAccessTokenSilently]);
+
   return (
     <section className="dashboard-page">
       <div className="side-nav">
@@ -12,14 +33,17 @@ const BoardSelectPage = () => {
         <div className="divider"></div>
         <div className="whiteboard">
           <div className="board-grid">
-            <h4s className="grid-header">Applications</h4s>
+            <h4 className="grid-header">Applications</h4>
             <div className="board-listings">
-              <div className="board-item"></div>
-              <div className="board-item"></div>
-              <div className="board-item"></div>
-              <div className="board-item"></div>
-              <div className="board-item"></div>
-              <div className="board-item"></div>
+              {boards.map((board) => {
+                return (
+                  <Link to={`/boards/${board.id}`} key={board.id}>
+                    <div className="board-item">
+                      <p className="board-item-text">{board.boardname}</p>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
