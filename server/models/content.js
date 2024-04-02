@@ -2,27 +2,25 @@ const { Model, DataTypes } = require("sequelize");
 
 const { sequelize } = require("../util/db");
 
-class Board extends Model {}
+class Content extends Model {}
 
-Board.init(
+Content.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    boardname: {
+    taskitem: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
   },
   {
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "board",
-    // indexes: [{ unique: true, fields: ["boardname"] }],
+    modelName: "content",
   }
 );
 
-module.exports = Board;
+module.exports = Content;

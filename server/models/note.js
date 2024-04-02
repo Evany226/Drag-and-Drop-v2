@@ -15,9 +15,6 @@ Note.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    content: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-    },
   },
   {
     sequelize,

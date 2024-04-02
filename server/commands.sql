@@ -13,3 +13,8 @@ insert into boards (boardname, user_id) values ('Kevin Board 1', 2);
 
 insert into boards (boardname, user_id) values ('Steven Board 1', 3);
 
+insert into notes (name, board_id) values ('Evan Note 1', 1);
+ 
+insert into notes (name, board_id) values ('Evan Note 2', 1);
+
+insert into notes (name, board_id) values ('Evan Note 3', 2);

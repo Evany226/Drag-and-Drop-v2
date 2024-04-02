@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const { Note, User } = require("../models");
+const { Note, User, Content } = require("../models");
 
 const { validateAccessToken } = require("../middleware/auth0.middleware.js");
 
@@ -8,8 +8,14 @@ router.get("/", async (req, res) => {
   try {
     const paramId = req.query.boardId;
     const notes = await Note.findAll({
-      where: {
-        boardId: paramId,
+      // where: {
+      //   boardId: paramId,
+      // },
+      include: {
+        model: Content,
+        attributes: {
+          exclude: ["noteId"],
+        },
       },
     });
     res.json(notes);
