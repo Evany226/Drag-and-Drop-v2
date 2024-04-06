@@ -8,9 +8,9 @@ router.get("/", async (req, res) => {
   try {
     const paramId = req.query.boardId;
     const notes = await Note.findAll({
-      // where: {
-      //   boardId: paramId,
-      // },
+      where: {
+        boardId: 1,
+      },
       include: {
         model: Content,
         attributes: {
