@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     const paramId = req.query.boardId;
     const notes = await Note.findAll({
       where: {
-        boardId: 1,
+        boardId: paramId,
       },
       include: {
         model: Content,
@@ -25,11 +25,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", validateAccessToken, async (req, res) => {
   try {
     // const authId = req.auth.payload.sub;
-    const paramId = req.query.boardId;
-    const note = await Note.create({ ...req.body, boardId: paramId });
+    // const paramId = req.query.boardId;
+    console.log(req.body);
+    const note = await Note.create({
+      ...req.body,
+      boardId: 1,
+    });
+
     res.json(note);
   } catch (error) {
     console.log(error);

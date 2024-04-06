@@ -42,6 +42,7 @@ const Dashboard = () => {
       const accessToken = await getAccessTokenSilently();
 
       noteService.getAll(paramId, accessToken).then((initialNotes) => {
+        console.log(initialNotes);
         setNotes(initialNotes);
       });
     };
@@ -69,12 +70,17 @@ const Dashboard = () => {
         contents: [],
       };
 
-      noteService
-        .create(noteObject, paramId, accessToken)
-        .then((returnedNote) => {
-          setNotes(notes.concat(returnedNote));
-          setNewNote("");
-        });
+      const returnedNote = await noteService.create(
+        noteObject,
+        paramId,
+        accessToken
+      );
+
+      console.log(notes);
+      console.log(returnedNote);
+      setNotes(notes.concat(returnedNote));
+      console.log(notes);
+      setNewNote("");
     };
     if (newNote === "") {
       window.alert("List name must not be empty");
@@ -121,15 +127,19 @@ const Dashboard = () => {
     event.preventDefault();
     const changeData = async () => {
       // const accessToken = await getAccessTokenSilently();
-      console.log("hello");
-      console.log(id);
 
       const contentObject = {
         taskitem: newContent,
       };
 
-      contentService.create(id, contentObject).then((returnedNote) => {
-        setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
+      contentService.create(contentObject).then((returnedNote) => {
+        const note = notes.find((note) => note.id === id);
+        const updatedNote = {
+          ...note,
+          contents: note.contents.concat(returnedNote),
+        };
+
+        setNotes(notes.map((note) => (note.id !== id ? note : updatedNote)));
         setNewContent("");
       });
     };
@@ -174,11 +184,14 @@ const Dashboard = () => {
   //delete note items
   const deleteContent = (event, id, itemId) => {
     event.preventDefault();
-    console.log(id);
-    console.log(itemId);
 
-    contentService.remove(itemId).then((returnedNote) => {
-      setNotes(notes.map((note) => (note.id != id ? note : returnedNote)));
+    contentService.remove(itemId).then(() => {
+      const note = notes.find((note) => note.id === id);
+      const updatedNote = {
+        ...note,
+        contents: note.contents.filter((item) => item.id !== itemId),
+      };
+      setNotes(notes.map((note) => (note.id !== id ? note : updatedNote)));
     });
   };
 
