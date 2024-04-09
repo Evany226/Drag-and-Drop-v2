@@ -28,14 +28,25 @@ router.get("/", async (req, res) => {
 router.post("/", validateAccessToken, async (req, res) => {
   try {
     // const authId = req.auth.payload.sub;
-    // const paramId = req.query.boardId;
+    const paramId = req.query.boardId;
     console.log(req.body);
     const note = await Note.create({
       ...req.body,
-      boardId: 1,
+      boardId: paramId,
     });
 
-    res.json(note);
+    const newNote = await Note.findAll({
+      where: {
+        id: note.id,
+      },
+      include: {
+        model: Content,
+        attributes: {
+          exclude: ["noteId"],
+        },
+      },
+    });
+    res.json(newNote);
   } catch (error) {
     console.log(error);
     return res.status(400).json({ error });

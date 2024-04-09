@@ -126,22 +126,24 @@ const Dashboard = () => {
   const changeContent = (event, id) => {
     event.preventDefault();
     const changeData = async () => {
-      // const accessToken = await getAccessTokenSilently();
+      const accessToken = await getAccessTokenSilently();
 
       const contentObject = {
         taskitem: newContent,
       };
 
-      contentService.create(contentObject).then((returnedNote) => {
-        const note = notes.find((note) => note.id === id);
-        const updatedNote = {
-          ...note,
-          contents: note.contents.concat(returnedNote),
-        };
+      contentService
+        .create(contentObject, id, accessToken)
+        .then((returnedNote) => {
+          const note = notes.find((note) => note.id === id);
+          const updatedNote = {
+            ...note,
+            contents: note.contents.concat(returnedNote),
+          };
 
-        setNotes(notes.map((note) => (note.id !== id ? note : updatedNote)));
-        setNewContent("");
-      });
+          setNotes(notes.map((note) => (note.id !== id ? note : updatedNote)));
+          setNewContent("");
+        });
     };
     if (newContent === "") {
       window.alert("Content must not be empty");
@@ -153,25 +155,21 @@ const Dashboard = () => {
   const editContent = (event, id, itemId) => {
     event.preventDefault();
     const editData = async () => {
-      const note = notes.find((n) => n.id === id);
-      const oldContent = note.content;
-
       const contentObject = {
-        taskItem: newContent,
-        id: itemId,
+        taskitem: newContent,
       };
 
-      const updatedContent = oldContent.map((item) =>
-        item.id === itemId ? contentObject : item
-      );
+      contentService.update(itemId, contentObject).then((returnedNote) => {
+        const note = notes.find((n) => n.id === id);
+        const updatedNote = {
+          ...note,
+          contents: note.contents.map((item) =>
+            item.id !== itemId ? item : returnedNote
+          ),
+        };
 
-      const changedNote = {
-        ...note,
-        content: updatedContent,
-      };
-
-      noteService.update(id, changedNote).then(() => {});
-      setNotes(notes.map((note) => (note.id != id ? note : changedNote)));
+        setNotes(notes.map((note) => (note.id !== id ? note : updatedNote)));
+      });
     };
 
     if (newContent === "") {

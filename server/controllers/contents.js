@@ -14,7 +14,8 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const note = await Note.findByPk(1);
+    const paramId = req.query.noteId;
+    const note = await Note.findByPk(paramId);
     const content = await Content.create({ ...req.body, noteId: note.id });
     res.json(content);
   } catch (err) {

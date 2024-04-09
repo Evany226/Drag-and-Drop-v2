@@ -12,10 +12,13 @@ const getAll = async (accessToken) => {
   return request.then((response) => response.data);
 };
 
-const create = (newObject, accessToken) => {
+const create = (newObject, paramId, accessToken) => {
   const request = axios.post(baseUrl, newObject, {
     "content-type": "application/json",
     Authorization: `Bearer ${accessToken}`,
+    params: {
+      noteId: paramId,
+    },
   });
 
   return request.then((response) => response.data);
