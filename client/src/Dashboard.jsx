@@ -43,11 +43,12 @@ const Dashboard = () => {
 
       noteService.getAll(paramId, accessToken).then((initialNotes) => {
         console.log(initialNotes);
+        console.log(user.sub);
         setNotes(initialNotes);
       });
     };
     getData();
-  }, [getAccessTokenSilently, paramId]);
+  }, [getAccessTokenSilently, paramId, user]);
 
   const handleOpen = () => {
     setOpen(!open);
