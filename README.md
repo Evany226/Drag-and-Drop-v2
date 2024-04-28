@@ -6,7 +6,7 @@ A project management application to help organize your workflow and track tasks.
 
 https://dragndrop226.netlify.app/
 
-![Dashboard page](https://gyazo.com/636cdc2b31c6d99eca26fcdb88fda29f)
+![Dashboard page](./images/dashboard.png)
 
 ## Technologies
 
@@ -21,6 +21,5 @@ https://dragndrop226.netlify.app/
   <img src="https://github.com/devicons/devicon/blob/master/icons/sequelize/sequelize-original.svg" title="Sequelize" alt="Sequelize" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/netlify/netlify-original.svg" title="Netlify" alt="Netlify" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/heroku/heroku-original.svg" title="Heroku" alt="Heroku" width="40" height="40"/>&nbsp;
-
 
 </div>
