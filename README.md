@@ -6,7 +6,7 @@ A project management application to help organize your workflow and track tasks.
 
 https://dragndrop226.netlify.app/
 
-![Dashboard page](./images/dashboard.png)
+![Dashboard page](./images/dashboard.png) ![Board page](./images/board.png)
 
 ## Technologies
 
