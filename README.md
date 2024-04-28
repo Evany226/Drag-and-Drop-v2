@@ -2,11 +2,11 @@
 
 A project management application to help organize your workflow and track tasks. Created using React, Express, Node.js, Sequelize and PostgreSQL. Inspired by trello.
 
-## Demo
+## Features
 
-https://dragndrop226.netlify.app/
-
-![Dashboard page](./images/dashboard.png) ![Board page](./images/board.png)
+* User authentication/authorization using Auth0
+* Create, read, update, delete notes
+* Drag and drop notes feature using https://github.com/hello-pangea/dnd
 
 ## Technologies
 
@@ -23,3 +23,10 @@ https://dragndrop226.netlify.app/
   <img src="https://github.com/devicons/devicon/blob/master/icons/heroku/heroku-original.svg" title="Heroku" alt="Heroku" width="40" height="40"/>&nbsp;
 
 </div>
+
+## Demo
+
+https://dragndrop226.netlify.app/
+
+![Dashboard page](./images/dashboard.png) ![Board page](./images/board.png)
+
